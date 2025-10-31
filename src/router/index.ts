@@ -62,6 +62,46 @@ export const constantRoutes: RouteRecordRaw[] = [
         }
       }
     ]
+  },
+  {
+    path: "/online-monitoring",
+    component: Layouts,
+    redirect: "/online-monitoring/device-monitoring",
+    name: "OnlineMonitoring",
+    meta: {
+      title: "在线监测",
+      elIcon: "Monitor",
+      alwaysShow: true
+    },
+    children: [
+      {
+        path: "device-monitoring",
+        component: () => import("@/pages/online-monitoring/DeviceMonitoring.vue"),
+        name: "DeviceMonitoring",
+        meta: {
+          title: "设备监测",
+          keepAlive: true
+        }
+      },
+      {
+        path: "list-monitoring",
+        component: () => import("@/pages/online-monitoring/ListMonitoring.vue"),
+        name: "ListMonitoring",
+        meta: {
+          title: "列表监测",
+          keepAlive: true
+        }
+      },
+      {
+        path: "device-map",
+        component: () => import("@/pages/online-monitoring/DeviceMap.vue"),
+        name: "DeviceMap",
+        meta: {
+          title: "设备地图",
+          keepAlive: true
+        }
+      }
+    ]
   }
   // {
   //   path: "/demo",
